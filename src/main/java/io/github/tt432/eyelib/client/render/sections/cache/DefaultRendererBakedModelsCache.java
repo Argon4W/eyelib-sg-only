@@ -2,7 +2,6 @@ package io.github.tt432.eyelib.client.render.sections.cache;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Transformation;
-import io.github.tt432.eyelib.client.model.UnBakedBrModel;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.SimpleBakedModel;
 import net.minecraft.resources.ResourceLocation;
@@ -51,10 +50,6 @@ public class DefaultRendererBakedModelsCache implements RendererBakedModelsCache
     }
 
     public BakedModelCache createModelCache(BakedModel model) {
-        if (model instanceof UnBakedBrModel.BakedBrModel brModel && brModel.getOriginalModel() instanceof SimpleBakedModel simple) {
-            return new BakedBrModelCache(brModel.visitors, simple);
-        }
-
         if (model instanceof SimpleBakedModel simple) {
             return new SimpleModelCache(simple);
         }
